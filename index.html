@@ -1,21 +1,1393 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="cs">
-  
-<!-- Mirrored from tranquil-dodol-4e6502.netlify.app/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Jun 2025 21:28:39 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="vite.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Ekopark - Rodinná firma specializující se na grafické navrhování zahrad, plány zahrad a jejich profesionální realizaci. Touchoriny 59, Loveckovice 411 45" />
-    <meta name="keywords" content="zahradní design, návrh zahrady, realizace zahrad, zahradní architektura, Loveckovice" />
-    <title>Ekopark - Zahradní design a realizace | Loveckovice</title>
-    <script type="module" crossorigin src="assets/index-j-3DDYo-.js"></script>
-    <link rel="stylesheet" crossorigin href="assets/index-9MaEVHks.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekopark Špatenka | Zahradnické služby</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green-dark: #2D5A3D;
+            --green-medium: #4A7C59;
+            --green-light: #6B9B7A;
+            --green-pale: #A8C5B5;
+            --cream-light: #FAF8F3;
+            --cream: #F5F0E6;
+            --cream-dark: #E8DFD0;
+            --brown: #8B7355;
+            --brown-dark: #5C4A35;
+            --text-dark: #2C3E2D;
+            --text-light: #5A6B5C;
+        }
 
-<!-- Mirrored from tranquil-dodol-4e6502.netlify.app/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Jun 2025 21:28:40 GMT -->
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--cream-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(250, 248, 243, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--cream-dark);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 0.7rem 5%;
+            box-shadow: 0 4px 30px rgba(45, 90, 61, 0.1);
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--green-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--green-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--cream-light);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--green-medium);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--green-dark);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 2px;
+            background: var(--green-dark);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-light) 50%, var(--green-pale) 100%);
+            overflow: hidden;
+            padding: 120px 5% 80px;
+        }
+
+        .hero-bg-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5c-2.5 8-8 15-15 20 7 5 12.5 12 15 20 2.5-8 8-15 15-20-7-5-12.5-12-15-20z' fill='%232D5A3D' fill-opacity='1'/%3E%3C/svg%3E");
+        }
+
+        .hero-decoration {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.15;
+        }
+
+        .hero-decoration-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--green-medium);
+            top: -200px;
+            right: -100px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero-decoration-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--green-light);
+            bottom: -100px;
+            left: -50px;
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        .hero-decoration-3 {
+            width: 150px;
+            height: 150px;
+            background: var(--brown);
+            top: 30%;
+            left: 10%;
+            animation: float 7s ease-in-out infinite 1s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.02); }
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--green-dark);
+            color: var(--cream-light);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            color: var(--green-dark);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .hero h1 span {
+            display: block;
+            font-size: 0.4em;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 400;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 1.5rem auto 2.5rem;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--green-dark);
+            color: var(--cream-light);
+            box-shadow: 0 4px 20px rgba(45, 90, 61, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--green-medium);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(45, 90, 61, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--green-dark);
+            border: 2px solid var(--green-dark);
+        }
+
+        .btn-secondary:hover {
+            background: var(--green-dark);
+            color: var(--cream-light);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            color: var(--green-dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--green-medium);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+        }
+
+        /* Specializace */
+        .specializace {
+            background: var(--cream);
+        }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .spec-card {
+            background: var(--cream-light);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid var(--cream-dark);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spec-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--green-dark), var(--green-light));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .spec-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(45, 90, 61, 0.1);
+        }
+
+        .spec-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .spec-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--green-pale) 0%, var(--green-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .spec-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--green-dark);
+        }
+
+        .spec-card h3 {
+            font-size: 1.5rem;
+            color: var(--green-dark);
+            margin-bottom: 1rem;
+        }
+
+        .spec-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Služby */
+        .sluzby {
+            background: linear-gradient(180deg, var(--cream-light) 0%, var(--cream) 100%);
+        }
+
+        .sluzby-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+
+        .sluzba-card {
+            background: var(--cream-light);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(45, 90, 61, 0.08);
+            transition: all 0.4s ease;
+            border: 1px solid var(--cream-dark);
+        }
+
+        .sluzba-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(45, 90, 61, 0.15);
+        }
+
+        .sluzba-image {
+            height: 250px;
+            background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-medium) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sluzba-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 10c-5 15-15 28-30 35 15 7 25 20 30 35 5-15 15-28 30-35-15-7-25-20-30-35z' fill='%23ffffff' fill-opacity='0.1'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .sluzba-image svg {
+            width: 100px;
+            height: 100px;
+            fill: var(--cream-light);
+            position: relative;
+            z-index: 1;
+        }
+
+        .sluzba-content {
+            padding: 2.5rem;
+        }
+
+        .sluzba-content h3 {
+            font-size: 1.8rem;
+            color: var(--green-dark);
+            margin-bottom: 1rem;
+        }
+
+        .sluzba-content p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .sluzba-features {
+            list-style: none;
+        }
+
+        .sluzba-features li {
+            padding: 0.5rem 0;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .sluzba-features li::before {
+            content: '✓';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: var(--green-pale);
+            color: var(--green-dark);
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        /* Galerie */
+        .galerie {
+            background: var(--cream);
+        }
+
+        .galerie-preview {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .galerie-item {
+            aspect-ratio: 4/3;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            background: linear-gradient(135deg, var(--green-medium) 0%, var(--green-dark) 100%);
+            transition: all 0.4s ease;
+        }
+
+        .galerie-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(45, 90, 61, 0.2);
+        }
+
+        .galerie-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(45, 90, 61, 0.6) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .galerie-item:hover::after {
+            opacity: 1;
+        }
+
+        .galerie-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--cream-light);
+            gap: 0.5rem;
+        }
+
+        .galerie-placeholder svg {
+            width: 50px;
+            height: 50px;
+            fill: currentColor;
+            opacity: 0.7;
+        }
+
+        .galerie-placeholder span {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .galerie-btn-container {
+            text-align: center;
+        }
+
+        /* Modal Galerie */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(44, 62, 45, 0.95);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--cream-light);
+            border-radius: 24px;
+            width: 100%;
+            max-width: 1100px;
+            max-height: 90vh;
+            overflow: hidden;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        .modal-header h3 {
+            font-size: 1.8rem;
+            color: var(--green-dark);
+        }
+
+        .modal-close {
+            width: 44px;
+            height: 44px;
+            border: none;
+            background: var(--cream);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--green-dark);
+            color: var(--cream-light);
+        }
+
+        .modal-close svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .modal-body {
+            padding: 2rem;
+            overflow-y: auto;
+            max-height: calc(90vh - 100px);
+        }
+
+        .modal-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .modal-item {
+            background: var(--cream);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--cream-dark);
+            transition: all 0.3s ease;
+        }
+
+        .modal-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(45, 90, 61, 0.1);
+        }
+
+        .modal-item-image {
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, var(--green-medium) 0%, var(--green-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-item-image svg {
+            width: 60px;
+            height: 60px;
+            fill: var(--cream-light);
+            opacity: 0.7;
+        }
+
+        .modal-item-content {
+            padding: 1.25rem;
+        }
+
+        .modal-item-content h4 {
+            font-size: 1.1rem;
+            color: var(--green-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-item-content p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Kontakt */
+        .kontakt {
+            background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-medium) 100%);
+            color: var(--cream-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kontakt::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5c-2.5 8-8 15-15 20 7 5 12.5 12 15 20 2.5-8 8-15 15-20-7-5-12.5-12-15-20z' fill='%23ffffff' fill-opacity='0.05'/%3E%3C/svg%3E");
+        }
+
+        .kontakt .section-header h2 {
+            color: var(--cream-light);
+        }
+
+        .kontakt .section-header h2::after {
+            background: var(--cream);
+        }
+
+        .kontakt .section-header p {
+            color: var(--cream-dark);
+        }
+
+        .kontakt-container {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .kontakt-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .kontakt-info p {
+            color: var(--cream-dark);
+            margin-bottom: 2rem;
+        }
+
+        .kontakt-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .kontakt-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .kontakt-item-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .kontakt-item-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--cream-light);
+        }
+
+        .kontakt-item-text h4 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.25rem;
+            opacity: 0.8;
+        }
+
+        .kontakt-item-text p {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--cream-light);
+        }
+
+        .kontakt-form {
+            background: var(--cream-light);
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--green-dark);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 2px solid var(--cream-dark);
+            border-radius: 12px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            background: var(--cream);
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--green-medium);
+            background: var(--cream-light);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .kontakt-form .btn {
+            width: 100%;
+            justify-content: center;
+            padding: 1.1rem 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--brown-dark);
+            color: var(--cream-dark);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--cream-light);
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-copy {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .kontakt-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .sluzby-container {
+                grid-template-columns: 1fr;
+            }
+
+            .galerie-preview {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 5%;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--cream-light);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                pointer-events: none;
+                border-bottom: 1px solid var(--cream-dark);
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .mobile-menu.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .mobile-menu.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            .hero {
+                padding: 100px 5% 60px;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .galerie-preview {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zM5.6 10.25c0 1.38 1.12 2.5 2.5 2.5.53 0 1.01-.16 1.42-.44l-.02.19c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5l-.02-.19c.4.28.89.44 1.42.44 1.38 0 2.5-1.12 2.5-2.5 0-1-.59-1.85-1.43-2.25.84-.4 1.43-1.25 1.43-2.25 0-1.38-1.12-2.5-2.5-2.5-.53 0-1.01.16-1.42.44l.02-.19C14.5 4.12 13.38 3 12 3S9.5 4.12 9.5 5.5l.02.19c-.4-.28-.89-.44-1.42-.44-1.38 0-2.5 1.12-2.5 2.5 0 1 .59 1.85 1.43 2.25-.84.4-1.43 1.25-1.43 2.25zM12 5.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5S9.5 9.38 9.5 8s1.12-2.5 2.5-2.5zM3 13c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9z"/></svg>
+            </div>
+            Ekopark Špatenka
+        </a>
+        <ul class="nav-links">
+            <li><a href="#specializace">Specializace</a></li>
+            <li><a href="#sluzby">Služby</a></li>
+            <li><a href="#galerie">Galerie</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+        <div class="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg-pattern"></div>
+        <div class="hero-decoration hero-decoration-1"></div>
+        <div class="hero-decoration hero-decoration-2"></div>
+        <div class="hero-decoration hero-decoration-3"></div>
+        <div class="hero-content">
+            <span class="hero-badge">Profesionální zahradnické služby</span>
+            <h1>
+                Ekopark Špatenka
+                <span>Zahradnictví s láskou k přírodě</span>
+            </h1>
+            <p class="hero-subtitle">
+                Vytváříme zahrady, které oživují vaše sny. Od návrhu až po realizaci – s důrazem na ekologii a krásu přírody.
+            </p>
+            <div class="hero-buttons">
+                <a href="#kontakt" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    Napište nám
+                </a>
+                <a href="#sluzby" class="btn btn-secondary">Naše služby</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specializace -->
+    <section class="specializace" id="specializace">
+        <div class="section-header">
+            <h2>Naše specializace</h2>
+            <p>S více než desetiletou zkušeností přinášíme do každé zahrady profesionalitu, kreativitu a respekt k přírodě.</p>
+        </div>
+        <div class="spec-grid">
+            <div class="spec-card">
+                <div class="spec-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zM3 13c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9zm9-11C8.03 2 4 6.03 4 11c4.97 0 9-4.03 9-9zm-1 9c0-4.97 4.03-9 9-9 0 4.97-4.03 9-9 9z"/></svg>
+                </div>
+                <h3>Ekologické zahradnictví</h3>
+                <p>Preferujeme přírodní postupy a materiály šetrné k životnímu prostředí. Vaše zahrada bude oázou pro biodiverzitu.</p>
+            </div>
+            <div class="spec-card">
+                <div class="spec-icon">
+                    <svg viewBox="0 0 24 24"><path d="M19.36 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.64-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+                </div>
+                <h3>Komplexní služby</h3>
+                <p>Od prvotního návrhu přes realizaci až po pravidelnou údržbu – postaráme se o všechno.</p>
+            </div>
+            <div class="spec-card">
+                <div class="spec-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+                <h3>Individuální přístup</h3>
+                <p>Každá zahrada je jedinečná. Nasloucháme vašim přáním a vytvoříme prostor přesně podle vašich představ.</p>
+            </div>
+            <div class="spec-card">
+                <div class="spec-icon">
+                    <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+                </div>
+                <h3>Celoroční péče</h3>
+                <p>Vaše zahrada potřebuje péči po celý rok. Nabízíme sezónní údržbu a pravidelný servis.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Služby -->
+    <section class="sluzby" id="sluzby">
+        <div class="section-header">
+            <h2>Naše služby</h2>
+            <p>Poskytujeme komplexní zahradnické služby od návrhu až po finální realizaci vašeho vysněného venkovního prostoru.</p>
+        </div>
+        <div class="sluzby-container">
+            <div class="sluzba-card">
+                <div class="sluzba-image">
+                    <svg viewBox="0 0 24 24"><path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zM5.6 10.25c0 1.38 1.12 2.5 2.5 2.5.53 0 1.01-.16 1.42-.44l-.02.19c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5l-.02-.19c.4.28.89.44 1.42.44 1.38 0 2.5-1.12 2.5-2.5 0-1-.59-1.85-1.43-2.25.84-.4 1.43-1.25 1.43-2.25 0-1.38-1.12-2.5-2.5-2.5-.53 0-1.01.16-1.42.44l.02-.19C14.5 4.12 13.38 3 12 3S9.5 4.12 9.5 5.5l.02.19c-.4-.28-.89-.44-1.42-.44-1.38 0-2.5 1.12-2.5 2.5 0 1 .59 1.85 1.43 2.25-.84.4-1.43 1.25-1.43 2.25zM12 5.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5S9.5 9.38 9.5 8s1.12-2.5 2.5-2.5zM3 13c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9z"/></svg>
+                </div>
+                <div class="sluzba-content">
+                    <h3>Úprava a realizace zahrad</h3>
+                    <p>Proměníme váš pozemek v kouzelnou zahradu. Od přípravy terénu po výsadbu a finální úpravy.</p>
+                    <ul class="sluzba-features">
+                        <li>Kompletní založení nových zahrad</li>
+                        <li>Rekonstrukce stávajících zahrad</li>
+                        <li>Výsadba stromů, keřů a trvalek</li>
+                        <li>Zakládání trávníků</li>
+                        <li>Instalace závlahových systémů</li>
+                        <li>Terénní úpravy a modelace</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sluzba-card">
+                <div class="sluzba-image">
+                    <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+                </div>
+                <div class="sluzba-content">
+                    <h3>Návrhy a digitální nákresy</h3>
+                    <p>Vizualizujeme vaše představy do detailních návrhů. Uvidíte svou zahradu ještě před prvním kopnutím do země.</p>
+                    <ul class="sluzba-features">
+                        <li>Konzultace a analýza pozemku</li>
+                        <li>2D půdorysné plány zahrady</li>
+                        <li>3D vizualizace a nákresy</li>
+                        <li>Výběr vhodných rostlin</li>
+                        <li>Rozpočet a časový harmonogram</li>
+                        <li>Technické specifikace</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galerie -->
+    <section class="galerie" id="galerie">
+        <div class="section-header">
+            <h2>Naše realizace</h2>
+            <p>Prohlédněte si ukázky našich prací a inspirujte se pro vaši vlastní zahradu.</p>
+        </div>
+        <div class="galerie-preview">
+            <div class="galerie-item" onclick="openGallery()">
+                <div class="galerie-placeholder">
+                    <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                    <span>Rodinná zahrada</span>
+                </div>
+            </div>
+            <div class="galerie-item" onclick="openGallery()">
+                <div class="galerie-placeholder">
+                    <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                    <span>Předzahrádka</span>
+                </div>
+            </div>
+            <div class="galerie-item" onclick="openGallery()">
+                <div class="galerie-placeholder">
+                    <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                    <span>Firemní areál</span>
+                </div>
+            </div>
+        </div>
+        <div class="galerie-btn-container">
+            <button class="btn btn-secondary" onclick="openGallery()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/></svg>
+                Zobrazit více
+            </button>
+        </div>
+    </section>
+
+    <!-- Modal Galerie -->
+    <div class="modal-overlay" id="galleryModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Galerie realizací</h3>
+                <button class="modal-close" onclick="closeGallery()">
+                    <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-gallery">
+                    <div class="modal-item">
+                        <div class="modal-item-image">
+                            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                        </div>
+                        <div class="modal-item-content">
+                            <h4>Rodinná zahrada Litoměřice</h4>
+                            <p>Kompletní realizace zahrady včetně automatické závlahy a osvětlení.</p>
+                        </div>
+                    </div>
+                    <div class="modal-item">
+                        <div class="modal-item-image">
+                            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                        </div>
+                        <div class="modal-item-content">
+                            <h4>Předzahrádka řadového domu</h4>
+                            <p>Moderní minimalistický design s nízkými keři a okrasnými travinami.</p>
+                        </div>
+                    </div>
+                    <div class="modal-item">
+                        <div class="modal-item-image">
+                            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                        </div>
+                        <div class="modal-item-content">
+                            <h4>Firemní areál Ústí nad Labem</h4>
+                            <p>Reprezentativní venkovní prostory s celoroční údržbou.</p>
+                        </div>
+                    </div>
+                    <div class="modal-item">
+                        <div class="modal-item-image">
+                            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                        </div>
+                        <div class="modal-item-content">
+                            <h4>Okrasná skalka</h4>
+                            <p>Alpská skalka s vybranými sukulent a horskými rostlinami.</p>
+                        </div>
+                    </div>
+                    <div class="modal-item">
+                        <div class="modal-item-image">
+                            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                        </div>
+                        <div class="modal-item-content">
+                            <h4>Ovocný sad</h4>
+                            <p>Výsadba ovocných stromů včetně starých českých odrůd.</p>
+                        </div>
+                    </div>
+                    <div class="modal-item">
+                        <div class="modal-item-image">
+                            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                        </div>
+                        <div class="modal-item-content">
+                            <h4>Jezírko s vodopádem</h4>
+                            <p>Okrasné jezírko s přírodní filtrací a kaskádovým vodopádem.</p>
+                        </div>
+                    </div>
+                    <div class="modal-item">
+                        <div class="modal-item-image">
+                            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                        </div>
+                        <div class="modal-item-content">
+                            <h4>Bylinkový záhon</h4>
+                            <p>Dekorativní i užitková bylinka v terasových záhonech.</p>
+                        </div>
+                    </div>
+                    <div class="modal-item">
+                        <div class="modal-item-image">
+                            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                        </div>
+                        <div class="modal-item-content">
+                            <h4>Rekonstrukce staré zahrady</h4>
+                            <p>Revitalizace zanedbaného pozemku do moderního stylu.</p>
+                        </div>
+                    </div>
+                    <div class="modal-item">
+                        <div class="modal-item-image">
+                            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                        </div>
+                        <div class="modal-item-content">
+                            <h4>Živý plot</h4>
+                            <p>Hustý stříhaný živý plot z habru pro soukromí a ochranu.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kontakt -->
+    <section class="kontakt" id="kontakt">
+        <div class="section-header">
+            <h2>Kontaktujte nás</h2>
+            <p>Máte dotaz nebo zájem o naše služby? Neváhejte se ozvat, rádi vám poradíme.</p>
+        </div>
+        <div class="kontakt-container">
+            <div class="kontakt-info">
+                <h3>Spojte se s námi</h3>
+                <p>Sídlíme v malebném prostředí Českého středohoří a jsme připraveni proměnit vaši zahradu v místo, kde se budete cítit jako doma.</p>
+                <div class="kontakt-details">
+                    <div class="kontakt-item">
+                        <div class="kontakt-item-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </div>
+                        <div class="kontakt-item-text">
+                            <h4>Sídlo</h4>
+                            <p>Touchořiny 59<br>411 45, Lovečkovice</p>
+                        </div>
+                    </div>
+                    <div class="kontakt-item">
+                        <div class="kontakt-item-icon">
+                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        </div>
+                        <div class="kontakt-item-text">
+                            <h4>Telefon</h4>
+                            <p>+420 XXX XXX XXX</p>
+                        </div>
+                    </div>
+                    <div class="kontakt-item">
+                        <div class="kontakt-item-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </div>
+                        <div class="kontakt-item-text">
+                            <h4>E-mail</h4>
+                            <p>info@ekoparkspatenka.cz</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="kontakt-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="jmeno">Jméno</label>
+                        <input type="text" id="jmeno" name="jmeno" placeholder="Vaše jméno">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefon">Telefon</label>
+                        <input type="tel" id="telefon" name="telefon" placeholder="+420">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="vas@email.cz">
+                </div>
+                <div class="form-group">
+                    <label for="zprava">Zpráva</label>
+                    <textarea id="zprava" name="zprava" placeholder="Popište nám svůj projekt nebo dotaz..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                    Odeslat zprávu
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Ekopark Špatenka</div>
+            <p>Touchořiny 59, 411 45 Lovečkovice</p>
+            <p>Zahradnické služby s láskou k přírodě</p>
+            <div class="footer-copy">
+                &copy; 2025 Ekopark Špatenka. Všechna práva vyhrazena.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Gallery Modal
+        const modal = document.getElementById('galleryModal');
+
+        function openGallery() {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGallery() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on overlay click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeGallery();
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeGallery();
+            }
+        });
+
+        // Smooth reveal animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.spec-card, .sluzba-card, .galerie-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Form submission (placeholder)
+        document.querySelector('.kontakt-form .btn').addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Děkujeme za vaši zprávu! Brzy se vám ozveme.');
+        });
+    </script>
+</body>
 </html>
